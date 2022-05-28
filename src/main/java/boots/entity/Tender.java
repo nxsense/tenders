@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -34,5 +35,7 @@ public class Tender {
     @Column(name = "offer_id")
     @OneToMany(mappedBy = "tender", cascade = CascadeType.DETACH)
     private Set<Offers> offers;
+    @Transient
+    List<Tender> stoppedTenders;
 
 }
