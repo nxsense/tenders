@@ -13,6 +13,5 @@ import java.util.Set;
 
 @Repository
 public interface OfferRepository extends JpaRepository<Offers, Long> {
-    @Query("select o from Offers o where o.tender = ?1")
-    Optional<Set<Offers>> findByTenderId(@Param("tender") Tender tender);
+        Optional<Set<Offers>> findByTenderId(Long id);
 }

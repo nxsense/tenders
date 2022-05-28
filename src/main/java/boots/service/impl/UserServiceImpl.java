@@ -17,7 +17,7 @@ public class UserServiceImpl implements UserService {
         this.userRepository = userRepository;
     }
     @Override
-    public User save(User user) {
+    public User createNewUser(User user) {
         String password = user.getPassword();
         user.setEmail(user.getEmail().toLowerCase());
         user.setPassword(password);
@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
         return userRepository.findById(id);
     }
     @Override
-    public Optional<User> findByName(String name) {
-        return userRepository.findByName(name);
+    public Optional<User> findUserByName(String name) {
+        return userRepository.findUserByName(name);
     }
 }

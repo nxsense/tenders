@@ -4,13 +4,23 @@ import boots.entity.Tender;
 import boots.repository.TenderRepository;
 import boots.service.TenderService;
 import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class TenderServiceImpl implements TenderService {
     private final TenderRepository tenderRepository;
     private List<Tender> stoppedTenders;
+
+    public List<Tender> getStoppedTenders() {
+        return stoppedTenders;
+    }
+
+    public void setStoppedTenders(List<Tender> stoppedTenders) {
+        this.stoppedTenders = stoppedTenders;
+    }
 
     public TenderServiceImpl(TenderRepository tenderRepository) {
         this.tenderRepository = tenderRepository;
@@ -28,13 +38,8 @@ public class TenderServiceImpl implements TenderService {
     }
 
     @Override
-    public Optional<List<Tender>> search(String text, String sortBy, String order) {
-        return Optional.empty();
-    }
-
-    @Override
     public Optional<List<Tender>> search(String text) {
-        return Optional.empty();
+        return tenderRepository.findTendersByTitleContainingIgnoreCaseAndDescriptionContainingIgnoreCase(text);
     }
 
     @Override
@@ -46,7 +51,9 @@ public class TenderServiceImpl implements TenderService {
 
     @Override
     public void startTender(Long id) {
-        stoppedTenders
+        for (Tender tender:stoppedTenders) {
+            if (tender.getId() == id) addTender(tender);
+        }
     }
 
     @Override
