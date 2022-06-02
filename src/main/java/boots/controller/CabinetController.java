@@ -19,6 +19,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Controller
+
 @RequestMapping()
 public class CabinetController {
     private final TenderServiceImpl tenderService;

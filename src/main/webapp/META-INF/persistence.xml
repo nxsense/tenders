@@ -6,7 +6,9 @@
              version="2.1">
 
     <persistence-unit name="TendersDB">
+        <provider>boots.config.JpaConfig</provider>
         <properties>
+
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/tenders" />
             <property name="javax.persistence.jdbc.user" value="root" />
             <property name="javax.persistence.jdbc.password" value="Lysak23102004" />

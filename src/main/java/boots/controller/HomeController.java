@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -34,11 +35,14 @@ public class HomeController {
 
     @RequestMapping(value = "/tenders", method = RequestMethod.GET)
     public String gtAllTenders(@RequestParam(defaultValue = "date") String sortBy, @RequestParam(defaultValue = "ascending") String orderBy,
-                               Model model){
+                               Model model, Principal principal){
         List<Tender> tenders;
         tenders = tenderService.getAllTenders(sortBy, orderBy);
+        model.addAttribute("principal", principal);
         model.addAttribute("tenders", tenders);
-        return "allTenders";
+        model.addAttribute("sortBy", sortBy);
+        model.addAttribute("orderBy", orderBy);
+        return "index";
     }
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(@RequestParam(value = "error", required = false) String error, Model model) {

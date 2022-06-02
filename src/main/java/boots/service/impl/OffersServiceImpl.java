@@ -1,7 +1,6 @@
 package boots.service.impl;
 
 import boots.entity.Offers;
-import boots.entity.Tender;
 import boots.repository.OfferRepository;
 import boots.service.OffersService;
 import org.springframework.stereotype.Service;
