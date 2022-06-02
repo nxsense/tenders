@@ -18,10 +18,10 @@ public class Offers {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private Long id;
-    @Column(name = "tender_id")
+
     @ManyToOne(fetch = FetchType.LAZY)
     Tender tender;
-    @Column(name = "user_id")
+
     @ManyToOne(fetch = FetchType.LAZY)
     User user;
 }

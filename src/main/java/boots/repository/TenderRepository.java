@@ -9,6 +9,6 @@ import java.util.Optional;
 
 @Repository
 public interface TenderRepository extends JpaRepository<Tender, Long> {
-    Optional<List<Tender>> findTendersByTitleContainingIgnoreCaseAndDescriptionContainingIgnoreCase(String text);
+    //Optional<List<Tender>> findTendersByTitleContainingIgnoreCaseAndDescriptionContainingIgnoreCase(String text);
 
 }

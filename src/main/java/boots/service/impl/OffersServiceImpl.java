@@ -4,11 +4,13 @@ import boots.entity.Offers;
 import boots.repository.OfferRepository;
 import boots.service.OffersService;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 import java.util.Set;
 
 @Service
+@Transactional
 public class OffersServiceImpl implements OffersService {
 
     private final OfferRepository offerRepository;

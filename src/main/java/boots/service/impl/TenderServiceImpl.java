@@ -5,11 +5,13 @@ import boots.repository.TenderRepository;
 import boots.service.TenderService;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
+@Transactional
 public class TenderServiceImpl implements TenderService {
     private final TenderRepository tenderRepository;
     private List<Tender> stoppedTenders;
@@ -37,10 +39,10 @@ public class TenderServiceImpl implements TenderService {
         return tenderRepository.findAll(Sort.by(sortBy).descending());
     }
 
-    @Override
-    public Optional<List<Tender>> search(String text) {
-        return tenderRepository.findTendersByTitleContainingIgnoreCaseAndDescriptionContainingIgnoreCase(text);
-    }
+//    @Override
+//    public Optional<List<Tender>> search(String text) {
+//        return tenderRepository.findTendersByTitleContainingIgnoreCaseAndDescriptionContainingIgnoreCase(text);
+//    }
 
     @Override
     public void stopTender(Long id) {

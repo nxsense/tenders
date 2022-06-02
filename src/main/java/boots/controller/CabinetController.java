@@ -4,6 +4,7 @@ import boots.entity.Tender;
 import boots.entity.User;
 import boots.service.impl.TenderServiceImpl;
 import boots.service.impl.UserServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,9 +23,11 @@ import java.util.Date;
 
 @RequestMapping()
 public class CabinetController {
+
     private final TenderServiceImpl tenderService;
     private final UserServiceImpl userService;
 
+    @Autowired
     public CabinetController(TenderServiceImpl tenderService, UserServiceImpl userService) {
         this.tenderService = tenderService;
         this.userService = userService;

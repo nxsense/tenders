@@ -19,6 +19,7 @@ import java.util.List;
 
 @Controller
 public class HomeController {
+
     private final TenderServiceImpl tenderService;
     private final UserServiceImpl userService;
 
@@ -42,7 +43,7 @@ public class HomeController {
         model.addAttribute("tenders", tenders);
         model.addAttribute("sortBy", sortBy);
         model.addAttribute("orderBy", orderBy);
-        return "index";
+        return "allTenders";
     }
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String login(@RequestParam(value = "error", required = false) String error, Model model) {

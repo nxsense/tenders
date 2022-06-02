@@ -27,7 +27,6 @@ public class Tender {
     private String description;
     @Column(name = "price")
     private int price;
-    @Column(name = "user_id")
     @ManyToOne(fetch = FetchType.LAZY)
     private User user;
     @Column(name = "date")

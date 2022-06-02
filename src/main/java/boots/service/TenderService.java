@@ -8,7 +8,7 @@ import java.util.Optional;
 public interface TenderService {
     List<Tender> getAllTenders();
     List<Tender> getAllTenders(String sortBy, String order);
-    Optional <List<Tender>> search(String text);
+    //Optional <List<Tender>> search(String text);
     void stopTender(Long id);
     void startTender(Long id);
     void tenderDelete(Long id);
