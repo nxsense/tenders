@@ -14,4 +14,5 @@ public interface TenderService {
     void tenderDelete(Long id);
     Tender addTender (Tender tender);
     Optional<Tender> getTenderById(Long id);
+    List<Tender> getTenderByUserName(String name);
 }

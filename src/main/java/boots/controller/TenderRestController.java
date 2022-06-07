@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
+@RequestMapping(value = "rest")
 @RestController
 public class TenderRestController {
     private final TenderServiceImpl tenderService;
@@ -56,18 +57,18 @@ public class TenderRestController {
         return tender;
     }
 
-//    @GetMapping(value = "tenders")
-//    public List<Tender> tenders(@RequestParam(value = "sortBy", required = false) String sortBy, @RequestParam(value = "orderBy", required = false) String orderBy){
-//        List<Tender> list;
-//        if(sortBy == null || orderBy == null){
-//             list = tenderService.getAllTenders();
-//        }
-//        else list = tenderService.getAllTenders(sortBy, orderBy);
-//        if (list.isEmpty()){
-//            throw new ResourceNotFoundException();
-//        }
-//        return list;
-//    }
+    @GetMapping(value = "tenders")
+    public List<Tender> tenders(@RequestParam(value = "sortBy", required = false) String sortBy, @RequestParam(value = "orderBy", required = false) String orderBy){
+        List<Tender> list;
+        if(sortBy == null || orderBy == null){
+             list = tenderService.getAllTenders();
+        }
+        else list = tenderService.getAllTenders(sortBy, orderBy);
+        if (list.isEmpty()){
+            throw new ResourceNotFoundException();
+        }
+        return list;
+    }
 
     @GetMapping(value = "tenders/{id}/offers")
     public Optional<Set<Offers>> getOffers(@PathVariable Long id){

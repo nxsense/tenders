@@ -5,7 +5,6 @@ import boots.entity.User;
 import boots.service.impl.TenderServiceImpl;
 import boots.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -68,11 +67,12 @@ public class HomeController {
         String password = user.getPassword();
         userService.createNewUser(user);
         model.addAttribute("user", user);
-        return "redirect:/login";
+        return "login";
     }
 
     @RequestMapping(value = "/rules", method = RequestMethod.GET)
-    public String rules(Model model) {
+    public String rules(Model model, Principal principal) {
+        model.addAttribute("principal", principal);
         return "rules";
     }
 }

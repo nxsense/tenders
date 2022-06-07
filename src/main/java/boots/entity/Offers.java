@@ -19,6 +19,9 @@ public class Offers {
     @Column(name = "id", nullable = false)
     private Long id;
 
+    @Column(name = "price")
+    private int price;
+
     @ManyToOne(fetch = FetchType.LAZY)
     Tender tender;
 

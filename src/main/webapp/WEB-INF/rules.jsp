@@ -64,43 +64,30 @@
     </div>
 </nav>
 
+
 <div class="container-fluid text-center">
     <div class="row content">
         <div class="col-sm-2 sidenav">
-            <p><a href="${contextPath}/rules">Tender Rules</a></p>
+            <p><a href="${contextPath}/rules">Rules</a></p>
         </div>
         <div class="col-sm-8 text-left">
-            <jsp:useBean id="tenders" scope="request" type="java.util.List"/>
-            <c:forEach items="${tenders}" var="tender">
-                <tr>
-                    <div class="panel panel-default">
 
-                        <div class="panel-heading">
-                            <div class="container-fluid">
-                                <div class="col-sm-11">
-                                    <a href="${contextPath}/tendDetails?tenderId=${tender.id}"><strong>${tender.title}</strong></a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="panel-body">
-                            <ul>
-                                <li>Customer: <strong>${tender.user.name}</strong></li>
-                                <li>Normative cost: <strong>${tender.price} BYN</strong></li>
-                                <li>Start date: <strong>${tender.date}</strong>
-                                </li>
-                            </ul>
-                        </div>
-
-                    </div>
-                </tr>
-            </c:forEach>
+            <h2 class="text-center"> Rules of online tenders</h2>
+            <ul>
+                <li>Тендерные торги на сайте начинаются в день, указанный в детальной информации конкретного тендера в 01:00 по минскому времени. Заявки на участие в тендере принимаются до указанного времени.</li>
+                <li>В деталях тендера указана нормативная стоимость проектно-изыскательский работ, предлагаемая участником тендера стоимость может быть ниже или выше нормативной стоимости.</li>
+                <li>Для получения дополнительных сведений о проекте, Пользователь обращается к Заказчику по контактам, указанным в деталях тендера.</li>
+                <li>Победителем тендера считается участник, предложивший наименьшую стоимость выполнения проектно-изыскательский работ.</li>
+                <li>Результаты тендера (победитель и стоимость) будут доступны в деталях тендера и в Личном кабинете пользователя (при условии участия в тендере).</li>
+                <li>После успешного проведения тендера Победитель связывается с Заказчиком (или наоборот) для заключения договора на выполнение проектно-изыскательский работ.</li>
+                <li>После отправки заявки на проведение тендера, она проходит проверку Администратором.</li>
+                <li>В случае если минимальную цену предложат двое или более Участников, победителем призенается участник, предложивший цену раньше.</li>
+                <li>Участник вправе предложить новую цену, если предыдущая ставка сделана им же.</li>
+            </ul>
         </div>
+
         <div class="col-sm-2 sidenav">
-            <p><a href="${contextPath}/tenders?sortBy=date&orderBy=ascending"><span class="glyphicon glyphicon-arrow-down"></span>Date</a></p>
-            <p><a href="${contextPath}/tenders?sortBy=price&orderBy=ascending"><span class="glyphicon glyphicon-arrow-down"></span>Price</a></p>
-            <p><a href="${contextPath}/tenders?sortBy=date&orderBy=descending"><span class="glyphicon glyphicon-arrow-up"></span>Date</a></p>
-            <p><a href="${contextPath}/tenders?sortBy=price&orderBy=descending"><span class="glyphicon glyphicon-arrow-up"></span>Price</a></p>
+            <p><a href="${contextPath}/tenders?active=all">All tenders</a></p>
         </div>
     </div>
 </div>
@@ -108,5 +95,6 @@
 <footer class="container-fluid text-center">
     <p>©ProjectTrade, 2022</p>
 </footer>
+
 </body>
 </html>

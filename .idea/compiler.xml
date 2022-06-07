@@ -14,7 +14,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="tenders1" options="" />
+      <module name="tenders1" options="--add-modules java.base" />
     </option>
   </component>
 </project>

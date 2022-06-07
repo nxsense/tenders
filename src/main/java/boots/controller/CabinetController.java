@@ -47,11 +47,11 @@ public class CabinetController {
         return "cabinet/myCabinet";
     }
 
-//    @RequestMapping(value = "myTenders", method = RequestMethod.GET)
-//    public String getMyTenders(Model model, Principal principal) {
-//        model.addAttribute("tenders", tenderService.getUsersTenders(principal.getName()));
-//        return "cabinet/myTenders";
-//    }
+    @RequestMapping(value = "myTenders", method = RequestMethod.GET)
+    public String getMyTenders(Model model, Principal principal) {
+        model.addAttribute("tenders", tenderService.getTenderByUserName(principal.getName()));
+        return "cabinet/myTenders";
+    }
 
     @RequestMapping(value = "newTender", method = RequestMethod.GET)
     public String newTender(Model model) {
