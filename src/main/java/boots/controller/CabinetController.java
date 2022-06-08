@@ -42,7 +42,7 @@ public class CabinetController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String cabinet(Model model, Principal principal) {
-        User user = userService.findUserByName(principal.getName()).get();
+        User user = userService.findUserByName(principal.getName());
         model.addAttribute("user", user);
         return "cabinet/myCabinet";
     }
