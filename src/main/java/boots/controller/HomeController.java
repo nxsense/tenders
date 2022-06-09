@@ -64,7 +64,7 @@ public class HomeController {
         if (result.hasErrors()) {
             return "registration";
         }
-        String password = user.getPassword();
+       // String password = user.getPassword();
         userService.createNewUser(user);
         model.addAttribute("user", user);
         return "login";

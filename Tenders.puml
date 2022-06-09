@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/use-case-diagram
+
+
+
+User -> (Create/delete tender)
+User --> (Generate URL)
+User --> (Stop and start tender)
+User -->(Create tender propositions)
+(Sort tenders) .. (Viewing active tender list)
+(Search tenders) ..(Viewing active tender list)
+
+Guest --> (Viewing active tender list)
+Guest --> (Viewing tender propositions)
+User -- Guest
+
+@enduml

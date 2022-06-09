@@ -1,13 +1,10 @@
 package boots.config;
 
-import boots.service.UserService;
-import boots.service.impl.UserServiceImpl;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
-import org.springframework.web.servlet.view.JstlView;
 
 @EnableAutoConfiguration
 @Configuration
@@ -18,15 +15,6 @@ public class WebMvcConfig {
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
         viewResolver.setPrefix("/WEB-INF/");
         viewResolver.setSuffix(".jsp");
-        viewResolver.setViewClass(JstlView.class);
         return viewResolver;
     }
-
-    @Bean
-    public UserService getUserDetailsService(){
-        return new UserServiceImpl();
-    }
-
-
-
 }

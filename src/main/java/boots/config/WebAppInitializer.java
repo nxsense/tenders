@@ -1,6 +1,8 @@
 package boots.config;
 
-import org.springframework.security.access.SecurityConfig;
+import boots.service.impl.UserDetailsServiceImpl;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.servlet.DispatcherServlet;
@@ -14,11 +16,16 @@ public class WebAppInitializer implements WebApplicationInitializer {
     public void onStartup(ServletContext servletContext) throws ServletException {
         AnnotationConfigWebApplicationContext webApplicationContext = new AnnotationConfigWebApplicationContext();
         webApplicationContext.register(WebMvcConfig.class);
-        webApplicationContext.register(SecurityConfig.class);
+
 
         ServletRegistration.Dynamic dispatcher = servletContext.addServlet(
                 "SpringDispatcher", new DispatcherServlet(webApplicationContext));
         dispatcher.setLoadOnStartup(1);
         dispatcher.addMapping("/");
     }
+
+//    @Bean
+//    public UserDetailsService getUserDetailsService(){
+//        return new UserDetailsServiceImpl();
+//    }
 }

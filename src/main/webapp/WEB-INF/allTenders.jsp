@@ -70,28 +70,28 @@
             <p><a href="${contextPath}/rules">Tender Rules</a></p>
         </div>
         <div class="col-sm-8 text-left">
-            <jsp:useBean id="tenders" scope="request" type="java.util.List<boots.entity.Tender>"/>
+            <jsp:useBean id="tenders" scope="request" type="java.util.List"/>
             <c:forEach items="${tenders}" var="tender">
                 <tr>
                     <div class="panel panel-default">
-                        <form method="get">
-                            <div class="panel-heading">
+
+                        <div class="panel-heading">
                             <div class="container-fluid">
                                 <div class="col-sm-11">
-                                    <a href="${contextPath}/tendDetails/{tender.id}"><strong>${tender.title}</strong></a>
+                                    <a href="${contextPath}/tendDetails?tenderId=${tender.id}"><strong>${tender.title}</strong></a>
                                 </div>
                             </div>
                         </div>
 
                         <div class="panel-body">
                             <ul>
-                                <li>Customer: <strong> ${tender.user.name}"/></strong></li>
-                                <li>Normative cost: <strong><c:out value = "${tender.price}"/> UAH</strong></li>
-                                <li>Start date: <strong><c:out value = "${tender.date}"/></strong>
+                                <li>Customer: <strong>${tender.user.name}</strong></li>
+                                <li>Normative cost: <strong>${tender.price} BYN</strong></li>
+                                <li>Start date: <strong>${tender.date}</strong>
                                 </li>
                             </ul>
                         </div>
-                        </form>
+
                     </div>
                 </tr>
             </c:forEach>

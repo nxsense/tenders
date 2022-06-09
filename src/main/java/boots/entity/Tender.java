@@ -34,7 +34,7 @@ public class Tender {
     @Column(name = "offer_id")
     @OneToMany(mappedBy = "tender", cascade = CascadeType.DETACH)
     private Set<Offers> offers;
-    @Column(name = "active")
-    private boolean active;
+    @Transient
+    List<Tender> stoppedTenders;
 
 }

@@ -68,7 +68,7 @@
 
             <h2>Personal cabinet</h2>
             <h3>Name: ${user.name}.</h3>
-            <h3>Email: ${user.email}.</h3>
+            <h3>Почтовый ящик: ${user.email}.</h3>
 
         </div>
 
