@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8"  %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -70,11 +71,11 @@
             <p><a href="${contextPath}/rules">Tender Rules</a></p>
         </div>
         <div class="col-sm-8 text-left">
-            <jsp:useBean id="tenders" scope="request" type="java.util.List"/>
+            <!-- <jsp:useBean id="tenders" scope="request" type="java.util.List"/> -->
             <c:forEach items="${tenders}" var="tender">
                 <tr>
                     <div class="panel panel-default">
-
+                        <form method="get">
                         <div class="panel-heading">
                             <div class="container-fluid">
                                 <div class="col-sm-11">
@@ -91,10 +92,11 @@
                                 </li>
                             </ul>
                         </div>
-
+                        </form>
                     </div>
                 </tr>
             </c:forEach>
+
         </div>
         <div class="col-sm-2 sidenav">
             <p><a href="${contextPath}/tenders?sortBy=date&orderBy=ascending"><span class="glyphicon glyphicon-arrow-down"></span>Date</a></p>

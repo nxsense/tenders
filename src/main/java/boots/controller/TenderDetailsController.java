@@ -32,14 +32,14 @@ public class TenderDetailsController {
     }
 
     @RequestMapping(value = "/tendDetails", method = RequestMethod.GET)
-    public String tendDetails(@RequestParam Long tenderId, Model model, Principal principal) {
+    public String tendDetails(@RequestParam int tenderId, Model model, Principal principal) {
         model.addAttribute("user", userService.findUserByName(principal.getName()));
         model.addAttribute("tender", tenderService.getTenderById(tenderId));
         return "tenderDetails/details";
     }
 
     @RequestMapping(value = "/doOffer", method = RequestMethod.GET)
-    public String doOffer(@RequestParam Long tenderId, Model model, Principal principal) {
+    public String doOffer(@RequestParam int tenderId, Model model, Principal principal) {
         Tender tender = tenderService.getTenderById(tenderId).get();
         User user = userService.findUserByName(principal.getName());
         model.addAttribute("user", user);
@@ -49,7 +49,7 @@ public class TenderDetailsController {
 
     @RequestMapping(value = "/doOffer", method = RequestMethod.POST)
     public String offerAccepted(@ModelAttribute User user, BindingResult result,
-                                @RequestParam Long tenderId, Principal principal, Model model, Offers offer) {
+                                @RequestParam  int tenderId, Principal principal, Model model, Offers offer) {
         Tender tender = tenderService.getTenderById(tenderId).get();
         if (result.hasErrors()) {
             model.addAttribute("user", user);

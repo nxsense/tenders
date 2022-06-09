@@ -8,6 +8,6 @@ import java.util.Optional;
 import java.util.Set;
 
 @Repository
-public interface OfferRepository extends JpaRepository<Offers, Long> {
-        Optional<Set<Offers>> findByTenderId(Long id);
+public interface OfferRepository extends JpaRepository<Offers, Integer> {
+        Optional<Set<Offers>> findByTenderId(int id);
 }

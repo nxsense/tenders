@@ -48,21 +48,21 @@ public class TenderServiceImpl implements TenderService {
 //    }
 
     @Override
-    public void stopTender(Long id) {
+    public void stopTender(int id) {
        Tender tender =  tenderRepository.findById(id).get();
        stoppedTenders.add(tender);
        tenderRepository.delete(getTenderById(id).get());
     }
 
     @Override
-    public void startTender(Long id) {
+    public void startTender(int id) {
         for (Tender tender:stoppedTenders) {
             if (tender.getId() == id) addTender(tender);
         }
     }
 
     @Override
-    public void tenderDelete(Long id) {
+    public void tenderDelete(int id) {
         tenderRepository.deleteById(id);
     }
 
@@ -72,7 +72,7 @@ public class TenderServiceImpl implements TenderService {
     }
 
     @Override
-    public Optional<Tender> getTenderById(Long id) {
+    public Optional<Tender> getTenderById(int id) {
         return tenderRepository.findById(id);
     }
 

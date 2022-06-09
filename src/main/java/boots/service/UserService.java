@@ -6,6 +6,6 @@ import java.util.Optional;
 
 public interface UserService {
     User createNewUser(User user);
-    Optional<User> findById(Long id);
+    Optional<User> findById(int id);
     User findUserByName(String name);
 }

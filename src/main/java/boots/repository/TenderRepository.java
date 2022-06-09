@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface TenderRepository extends JpaRepository<Tender, Long> {
+public interface TenderRepository extends JpaRepository<Tender, Integer> {
     //Optional<List<Tender>> findTendersByTitleContainingIgnoreCase(String text);
    // @Query
 

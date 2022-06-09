@@ -25,7 +25,7 @@ public class OffersServiceImpl implements OffersService {
     }
 
     @Override
-    public Optional<Set<Offers>> findByTenderId(Long id) {
+    public Optional<Set<Offers>> findByTenderId(int id) {
         return offerRepository.findByTenderId(id);
     }
 }
